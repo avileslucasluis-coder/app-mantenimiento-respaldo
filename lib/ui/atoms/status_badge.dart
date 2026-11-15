@@ -1,7 +1,7 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 
-import '../../core/theme/spacing.dart';
-import '../../data/models/enums.dart';
+import '../../core/theme/theme.dart';
+import '../../data/models/models.dart';
 
 enum BadgeTono { primario, secundario, terciario, error, neutro }
 
@@ -10,11 +10,11 @@ class StatusBadge extends StatelessWidget {
   const StatusBadge({super.key, required this.label, required this.tono});
 
   factory StatusBadge.equipo(EstadoEquipo estado) => StatusBadge(
-        label: estado.label,
-        tono: estado == EstadoEquipo.operativo
-            ? BadgeTono.primario
-            : BadgeTono.error,
-      );
+    label: estado.label,
+    tono: estado == EstadoEquipo.operativo
+        ? BadgeTono.primario
+        : BadgeTono.error,
+  );
 
   factory StatusBadge.estadoMantenimiento(EstadoMantenimiento estado) =>
       StatusBadge(
@@ -25,11 +25,11 @@ class StatusBadge extends StatelessWidget {
       );
 
   factory StatusBadge.tipo(TipoMantenimiento tipo) => StatusBadge(
-        label: tipo.label,
-        tono: tipo == TipoMantenimiento.preventivo
-            ? BadgeTono.secundario
-            : BadgeTono.error,
-      );
+    label: tipo.label,
+    tono: tipo == TipoMantenimiento.preventivo
+        ? BadgeTono.secundario
+        : BadgeTono.error,
+  );
 
   final String label;
   final BadgeTono tono;
@@ -56,10 +56,9 @@ class StatusBadge extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: Theme.of(context)
-              .textTheme
-              .labelMedium
-              ?.copyWith(color: texto),
+          style: Theme.of(
+            context,
+          ).textTheme.labelMedium?.copyWith(color: texto),
         ),
       ),
     );

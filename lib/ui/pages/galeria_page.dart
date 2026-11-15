@@ -1,13 +1,9 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 
-import '../../core/theme/spacing.dart';
-import '../../data/models/enums.dart';
-import '../atoms/app_button.dart';
-import '../atoms/app_text_field.dart';
-import '../atoms/status_badge.dart';
-import '../molecules/app_snack_bar.dart';
-import '../molecules/filter_chips_row.dart';
-import '../molecules/search_field.dart';
+import '../../core/theme/theme.dart';
+import '../../data/models/models.dart';
+import '../atoms/atoms.dart';
+import '../molecules/molecules.dart';
 
 /// Catálogo vivo de componentes, en el orden de Atomic Design.
 /// Sirve para comparar la app con el archivo de Figma.
@@ -22,13 +18,13 @@ class _GaleriaPageState extends State<GaleriaPage> {
   EstadoEquipo? _filtro;
 
   Widget _seccion(String titulo, Widget hijo) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: Spacing.md,
-        children: [
-          Text(titulo, style: Theme.of(context).textTheme.titleLarge),
-          hijo,
-        ],
-      );
+    crossAxisAlignment: CrossAxisAlignment.start,
+    spacing: Spacing.md,
+    children: [
+      Text(titulo, style: Theme.of(context).textTheme.titleLarge),
+      hijo,
+    ],
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +47,11 @@ class _GaleriaPageState extends State<GaleriaPage> {
                       AppButton(label: s.name, style: s, onPressed: () {}),
                       AppButton(label: s.name, style: s, onPressed: null),
                     ],
-                    AppButton(label: 'Con icono', icon: Icons.add, onPressed: () {}),
+                    AppButton(
+                      label: 'Con icono',
+                      icon: Icons.add,
+                      onPressed: () {},
+                    ),
                   ],
                 ),
               ),
@@ -64,7 +64,8 @@ class _GaleriaPageState extends State<GaleriaPage> {
                     for (final e in EstadoEquipo.values) StatusBadge.equipo(e),
                     for (final e in EstadoMantenimiento.values)
                       StatusBadge.estadoMantenimiento(e),
-                    for (final t in TipoMantenimiento.values) StatusBadge.tipo(t),
+                    for (final t in TipoMantenimiento.values)
+                      StatusBadge.tipo(t),
                   ],
                 ),
               ),

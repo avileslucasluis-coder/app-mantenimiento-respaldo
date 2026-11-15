@@ -1,4 +1,4 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 
 /// Átomo "Campo de texto" de Figma. El borde outlined sale del tema.
 class AppTextField extends StatelessWidget {
@@ -12,8 +12,10 @@ class AppTextField extends StatelessWidget {
     this.keyboardType,
     this.textInputAction,
     this.onChanged,
+    this.suffixIcon,
   });
 
+  final Widget? suffixIcon;
   final String label;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
@@ -32,7 +34,11 @@ class AppTextField extends StatelessWidget {
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       onChanged: onChanged,
-      decoration: InputDecoration(labelText: label, helperText: helper),
+      decoration: InputDecoration(
+        labelText: label,
+        helperText: helper,
+        suffixIcon: suffixIcon,
+      ),
     );
   }
 }

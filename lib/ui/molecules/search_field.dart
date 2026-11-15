@@ -1,4 +1,4 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 
 /// Molécula "Barra de búsqueda" de Figma (SearchBar de M3).
 class SearchField extends StatelessWidget {

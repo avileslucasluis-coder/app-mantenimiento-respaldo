@@ -1,6 +1,6 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 
-import '../../core/theme/spacing.dart';
+import '../../core/theme/theme.dart';
 
 /// Molécula "Fila de filtros" de Figma: un FilterChip por opción.
 /// La clave `null` del mapa sirve para la opción "Todos".

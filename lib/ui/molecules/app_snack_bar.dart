@@ -1,4 +1,4 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 
 /// Molécula "Snackbar" de Figma. Reemplaza el anterior si hay uno visible.
 void showAppSnackBar(

@@ -1,4 +1,4 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 
 enum AppButtonStyle { filled, tonal, outlined, text }
 
@@ -23,19 +23,30 @@ class AppButton extends StatelessWidget {
     final text = Text(label);
     final icono = icon == null ? null : Icon(icon);
     return switch (style) {
-      AppButtonStyle.filled => icono == null
-          ? FilledButton(onPressed: onPressed, child: text)
-          : FilledButton.icon(onPressed: onPressed, icon: icono, label: text),
-      AppButtonStyle.tonal => icono == null
-          ? FilledButton.tonal(onPressed: onPressed, child: text)
-          : FilledButton.tonalIcon(
-              onPressed: onPressed, icon: icono, label: text),
-      AppButtonStyle.outlined => icono == null
-          ? OutlinedButton(onPressed: onPressed, child: text)
-          : OutlinedButton.icon(onPressed: onPressed, icon: icono, label: text),
-      AppButtonStyle.text => icono == null
-          ? TextButton(onPressed: onPressed, child: text)
-          : TextButton.icon(onPressed: onPressed, icon: icono, label: text),
+      AppButtonStyle.filled =>
+        icono == null
+            ? FilledButton(onPressed: onPressed, child: text)
+            : FilledButton.icon(onPressed: onPressed, icon: icono, label: text),
+      AppButtonStyle.tonal =>
+        icono == null
+            ? FilledButton.tonal(onPressed: onPressed, child: text)
+            : FilledButton.tonalIcon(
+                onPressed: onPressed,
+                icon: icono,
+                label: text,
+              ),
+      AppButtonStyle.outlined =>
+        icono == null
+            ? OutlinedButton(onPressed: onPressed, child: text)
+            : OutlinedButton.icon(
+                onPressed: onPressed,
+                icon: icono,
+                label: text,
+              ),
+      AppButtonStyle.text =>
+        icono == null
+            ? TextButton(onPressed: onPressed, child: text)
+            : TextButton.icon(onPressed: onPressed, icon: icono, label: text),
     };
   }
 }

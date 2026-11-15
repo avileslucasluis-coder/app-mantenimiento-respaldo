@@ -1,21 +1,21 @@
-import 'package:app_mantenimiento/app.dart';
+import 'package:app_mantenimiento/ui/pages/galeria_page.dart';
 import 'package:app_mantenimiento/data/models/enums.dart';
 import 'package:app_mantenimiento/ui/atoms/status_badge.dart';
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets('StatusBadge muestra la etiqueta del estado', (tester) async {
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(
-        body: StatusBadge.equipo(EstadoEquipo.enMantenimiento),
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(body: StatusBadge.equipo(EstadoEquipo.enMantenimiento)),
       ),
-    ));
+    );
     expect(find.text('En mantenimiento'), findsOneWidget);
   });
 
   testWidgets('la galería muestra los átomos y las moléculas', (tester) async {
-    await tester.pumpWidget(const App());
+    await tester.pumpWidget(const MaterialApp(home: GaleriaPage()));
     expect(find.text('Galería de diseño'), findsOneWidget);
     expect(find.text('Átomos · Botón'), findsOneWidget);
 
